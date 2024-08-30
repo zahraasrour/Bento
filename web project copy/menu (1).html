@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="whole.css" />
+    <link rel="icon" href="images/bento logo.png" type="image/icon type" />
+    <title>Bento-Menu</title>
+    <style>
+  #menu {
+            padding: 25px 0 25px 0;
+            margin: auto;
+          }
+          .section {
+            padding: 4px 0 25px 0;
+            text-align: center;
+            font-size: 80px;
+            font-family: "Courier New", Courier, monospace;
+            font-weight: bold;
+          }
+          #menuRows {
+            display: flex;
+            padding: 0 100px 0 100px;
+          }
+          #menu h2{
+            text-align: center;
+            font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+            font-weight: bold;
+          }
+          .menuCol {
+            box-shadow: 4px 4px 4px #bbb;
+            border: 1px dashed #bbb;
+            border-radius: 25px;
+            background-color: #fff;
+            margin: 10px;
+            padding: 10px;
+            flex: 1;
+          }
+          .menuCol h2 {
+            border-radius: 8px;
+            background-color: #f84225;
+            color: #fff;
+            text-align: center;
+            padding: 5px;
+            font-family: cursive;
+          }
+          .menuCol h3 {
+            font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+          }
+          h4 {
+            margin-right: 17px;
+            margin-top: 7px;
+            margin-left: 10px;
+            float: left;
+            font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+          }
+          .image img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            padding: 5px;
+            border: 2px solid orangered;
+          }
+          .boxes {
+            margin-top: 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+          }
+          .js {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 50px;
+            font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+          }
+          .like {
+            float: right;
+          }
+          .like-button {
+            background-color: white;
+            border: none;
+            padding: 4px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+          }
+          .fa {
+            color: grey;
+            font-size: 15px;
+          }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      function validateEmail() {
+        var email = document.getElementById("email").value;
+        var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+        if (email.match(pattern)) {
+          document.getElementById("error").innerHTML = "";
+          return true;
+        } else {
+          document.getElementById("error").innerHTML =
+            "Please enter a valid email address";
+          return false;
+        }
+      }
+      const texts =["The Best That Surprises You."];
+      let currentIndex = 0;
+      let currentText = "";
+      let letterIndex = 0;
+
+      function writeText() {
+        currentText = texts[currentIndex];
+        document.getElementById("slogan").innerHTML = currentText.slice(
+          0,
+          letterIndex
+        );
+        letterIndex++;
+
+        if (letterIndex > currentText.length) {
+          letterIndex = 0;
+          currentIndex = (currentIndex + 1) % texts.length;
+        }
+      }
+      setInterval(writeText, 150);
+    </script>
+  </head>
+
+  <body>
+    <nav>
+      <a href="project2.html"><img class="nav-logo" width="200px" src="images/bento logo-01.png" alt="fsasaf"></a>
+          <ul>
+              <li><a href="reservation.html">RESERVATION</a></li>
+              <li><a href="events.html">EVENTS</a></li>
+              <li><a href="menu (1).html">MENU</a></li>
+              <li><a href="card.html">COMMENT</a></li>
+          </ul>
+  </nav>
+    <main>
+      <div id="menu">
+          <h1 class="section" ><div>Menu</div></h1>
+          <h2  style="font-family: serif">
+            Tastes <span id="slogan" style="font-family: serif">The Best That Surprises You.</span> <br />
+          </h2></div>
+          <div id="menuRows">
+            <div class="menuCol">
+              <h2>Apetizers</h2>
+              <div class="boxes">
+                <div class="image">
+                  <img src="images/vegetable gyoza.jpg" alt="gyoza" />
+                </div>
+                <div>
+                  <h3>Vegetable Gyoza</h3>
+                </div>
+                <div>
+                  <h4>7$</h4>
+                  <div class="like">
+                    <button class="like-button" onclick="toggle(this)">
+                      <i class="fa">&#xf004;</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="boxes">
+                <div class="image">
+                  <img src="images/springRolss.jpg" alt="Rolls" />
+                </div>
+                <div>
+                  <h3>Shrimp Spring Roll</h3>
+                </div>
+                <div>
+                  <h4>7$</h4>
+                  <div class="like">
+                    <button class="like-button" onclick="toggle(this)">
+                      <i class="fa">&#xf004;</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="boxes">
+                <div class="image">
+                  <img src="images/soup.jpeg" alt="shrimp" />
+                </div>
+                <div>
+                  <h3>Soup</h3>
+                </div>
+                <div>
+                  <h4>2.5$</h4>
+                  <div class="like">
+                    <button class="like-button" onclick="toggle(this)">
+                      <i class="fa">&#xf004;</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="boxes">
+                <div class="image">
+                  <img src="images/edemame.jpeg" alt="edamame" />
+                </div>
+                <div>
+                  <h3>edamame</h3>
+                </div>
+                <div>
+                  <h4>8$</h4>
+                  <div class="like">
+                    <button class="like-button" onclick="toggle(this)">
+                      <i class="fa">&#xf004;</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="menuCol">
+              <h2>Sushi</h2>
+              <div class="boxes">
+                <div class="image">
+                  <img src="images/salmon.jpg" alt="salmon" />
+                </div>
+                <div>
+                  <h3>Salmon Sushi</h3>
+                </div>
+                <div>
+                  <h4>3$</h4>
+                  <div class="like">
+                    <button class="like-button" onclick="toggle(this)">
+                      <i class="fa">&#xf004;</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="boxes">
+                <div class="image">
+                  <img src="images/avocado.jpg" alt="avocado" />
+                </div>
+                <div>
+                  <h3>Avocado Sushi</h3>
+                </div>
+                <div>
+                  <h4>3$</h4>
+                  <div class="like">
+                    <button class="like-button" onclick="toggle(this)">
+                      <i class="fa">&#xf004;</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="boxes">
+                <div class="image">
+                  <img src="images/shrimp.jpg" alt="shrimp" />
+                </div>
+                <div>
+                  <h3>Shrimp Sushi</h3>
+                </div>
+                <div>
+                  <h4>2.5$</h4>
+                  <div class="like">
+                    <button class="like-button" onclick="toggle(this)">
+                      <i class="fa">&#xf004;</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="boxes">
+                <div class="image">
+                  <img src="images/crab.jpg" alt="crab" />
+                </div>
+                <div>
+                  <h3>Crab Sushi</h3>
+                </div>
+                <div>
+                  <h4>2$</h4>
+                  <div class="like">
+                    <button class="like-button" onclick="toggle(this)">
+                      <i class="fa">&#xf004;</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="menuCol">
+              <h2>Main Dishes</h2>
+              <div class="boxes">
+                <div class="image">
+                  <img src="images/sashimi.jpeg" alt="sashimi" />
+                </div>
+                <div>
+                  <h3>Tuna sashimi</h3>
+                </div>
+                <div>
+                  <h4>3$</h4>
+                  <div class="like">
+                    <button class="like-button" onclick="toggle(this)">
+                      <i class="fa">&#xf004;</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="boxes">
+                <div class="image">
+                  <img src="images/teryaki.jpeg" alt="teryaki" />
+                </div>
+                <div>
+                  <h3>Teriyaki Wings</h3>
+                </div>
+                <div>
+                  <h4>3$</h4>
+                  <div class="like">
+                    <button class="like-button" onclick="toggle(this)">
+                      <i class="fa">&#xf004;</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="boxes">
+                <div class="image">
+                  <img src="images/steak.jpg" alt="steak" />
+                </div>
+                <div>
+                  <h3>Hibachi-Style Steak</h3>
+                </div>
+                <div>
+                  <h4>2.5$</h4>
+                  <div class="like">
+                    <button class="like-button" onclick="toggle(this)">
+                      <i class="fa">&#xf004;</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="boxes">
+                <div class="image">
+                  <img src="images/fried-tofu.jpg" alt="tofu" />
+                </div>
+                <div>
+                  <h3>Miso Baked Tofu</h3>
+                </div>
+                <div>
+                  <h4>8$</h4>
+                  <div class="like">
+                    <button class="like-button" onclick="toggle(this)">
+                      <i class="fa">&#xf004;</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="menuCol">
+              <h2>Drinks</h2>
+              <div class="boxes">
+                <div class="image">
+                  <img src="images/soda.jpeg" alt="soda" />
+                </div>
+                <div>
+                  <h3>Melon Soda</h3>
+                </div>
+                <div>
+                  <h4>6.25$</h4>
+                  <div class="like">
+                    <button class="like-button" onclick="toggle(this)">
+                      <i class="fa">&#xf004;</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="boxes">
+                <div class="image">
+                  <img src="images/Tea.jpeg" alt="Green Tea" />
+                </div>
+                <div>
+                  <h3>Green Tea</h3>
+                </div>
+                <div>
+                  <h4>4$</h4>
+                  <div class="like">
+                    <button class="like-button" onclick="toggle(this)">
+                      <i class="fa">&#xf004;</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="boxes">
+                <div class="image">
+                  <img src="images/bubble.jpeg" alt="bubble Tea" />
+                </div>
+                <div>
+                  <h3>Bubble Tea</h3>
+                </div>
+                <div>
+                  <h4>6$</h4>
+                  <div class="like">
+                    <button class="like-button" onclick="toggle(this)">
+                      <i class="fa">&#xf004;</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="boxes">
+                <div class="image">
+                  <img src="images/chuhai.jpeg" alt="chuhai" />
+                </div>
+                <div>
+                  <h3>Chuhai</h3>
+                </div>
+                <div>
+                  <h4>6$</h4>
+
+                  <div class="like">
+                    <button class="like-button" onclick="toggle(this)">
+                      <i class="fa">&#xf004;</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="menuCol">
+              <h2>Desserts</h2>
+              <div class="boxes">
+                <div class="image">
+                  <img src="images/icecream.jpeg" alt="Mochi icecream " />
+                </div>
+                <div>
+                  <h3>Mochi icecream</h3>
+                </div>
+                <div>
+                  <h4>2$</h4>
+                  <div class="like">
+                    <button class="like-button" onclick="toggle(this)">
+                      <i class="fa">&#xf004;</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="boxes">
+                <div class="image">
+                  <img src="images/parfait.jpeg" alt="Parfait" />
+                </div>
+                <div>
+                  <h3>Parfait</h3>
+                </div>
+                <div>
+                  <h4>3.75$</h4>
+                  <div class="like">
+                    <button class="like-button" onclick="toggle(this)">
+                      <i class="fa">&#xf004;</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="boxes">
+                <div class="image">
+                  <img src="images/jelly roll.jpeg" alt="jelly" />
+                </div>
+                <div>
+                  <h3>Jelly Cake</h3>
+                </div>
+                <div>
+                  <h4>2.5$</h4>
+                  <div class="like">
+                    <button class="like-button" onclick="toggle(this)">
+                      <i class="fa">&#xf004;</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="boxes">
+                <div class="image">
+                  <img src="images/cheescake.jpeg" alt="crab" />
+                </div>
+                <div>
+                  <h3>Pistachio Cheescake</h3>
+                </div>
+                <div>
+                  <h4>4$</h4>
+                  <div class="like">
+                    <button class="like-button" onclick="toggle(this)">
+                      <i class="fa">&#xf004;</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="js">
+        <script type="text/javascript" class="js">
+          document.write(
+            "This page was last modified on " + document.lastModified
+          );
+        </script>
+      </div>
+    </main>
+    <footer>
+      <div class="content">
+        <div class="left box">
+          <div class="upper">
+             <img width="320px" src="images/bento logo-01.png" alt="Bento">
+          </div>
+          <div class="media-icons">
+              <a href=""><img width="25px" src="images/image (1).png" alt="Facebook"></a>
+              <a href=""><img width="25px" src="images/image (2) copy.png" alt="Twitter"></a>
+              <a href=""><img width="25px" src="images/image copy.png" alt="Instagram"></a>
+              <a href=""><img width="25px" src="images/pngwing.com (2).png" alt="Pinterest"></a>
+        </div>
+        <br>
+        <br>
+        <div class="copyright">Copyright &#x24b8; 2023 Bento. All Rights Reserved</div> 
+        </div>
+        <div class="middle box">
+          <div class="topic">Our Services</div>
+          <ul>
+          <li>Menu recommendations</li>
+          <li>Table service</li>
+          <li>Sake and beverage pairing</li>
+          <li>Fresh ingredients</li>
+          <li>Authentic Japanese cooking techniques</li>
+          <li>Special requests</li>
+          <li>Knowledgeable staff</li>
+         </ul>
+        </div>
+        <div class="right box">
+          <div class="topic">Subscribe us</div>
+          <form action="#">
+            <input type="email" id="email" name="email" placeholder="Enter email address">
+            <span id="error"></span>
+            <input type="submit" name="" value="Subscribe" onclick="return validateEmail()">
+          </form>
+          <div class="lower">
+              <div class="topic">Contact us</div>
+                <div><a href="#"><img width="13px" src="images/image (4).png" alt="phone number"><i>+999 9999 9999</i></a></div>
+               <div><a href="#"><img width="20px" src="/images/image (2).png" alt="location"><i>Location</i></a></div> 
+               <div><a href="mailto:abc@gmail.com"><img width="20px" src="images/image (5).png" alt="email"><i>abc@gmail.com</i></a></div>
+        </div>
+          
+        </div>
+      </div>
+      
+    </footer>
+  </body>
+</html>
+
+<script>
+  $(document).ready(function () {
+    $(".image").mouseenter(function () {
+      $("img", this).css("opacity", "60%");
+    });
+    $(".image").mouseleave(function () {
+      $("img", this).css("opacity", "100%");
+    });
+  });
+
+  function toggle(elem) {
+    if ($(elem).children(".fa").css("color") == "rgb(255, 0, 0)") {
+      $(elem).children(".fa").css("color", "grey");
+    } else {
+      $(elem).children(".fa").css("color", "red");
+    }
+  }
+</script>

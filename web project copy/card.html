@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Restaurant Comment Card</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="card.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js">
+</script>
+<script>
+$(document).ready(function(){
+$('form').validate();});
+</script>
+<script>
+function validateForm()
+{
+  var phonenumberformat = "^((01)|(03)|(04)|(05)|(06)|(07)|(08)|(09)|(70)|(71)|(76)|(78)|(79)|(81))[0-9]{6\}$";
+  if(!document.forms[0].PhoneNumber.value.match(phonenumberformat))
+  {
+  alert("Invalid phone number,please enter a valid lebanese phone number.");
+  return false;
+  }
+  if(document.forms[0].QoF.value=="" || document.forms[0].CoR.value=="" || document.forms[0].QoS.value=="" || 
+  document.forms[0].FoS.value=="" || document.forms[0].SoS.value=="" || document.forms[0].AoS.value=="" || 
+  document.forms[0].VoM.value=="" || document.forms[0].RD.value=="")
+  {
+  alert("Rating selection is necessary to fill");
+  return false;
+  }
+  if(!document.forms[0].ourLocation.checked && !document.forms[0].ourEvents.checked && !document.forms[0].ourView.checked && 
+  !document.forms[0].ourTakeaway.checked && !document.forms[0].ourReputation.checked && !document.forms[0].ourSystem.checked && 
+  !document.forms[0].ourWifi.checked && !document.forms[0].ourParking.checked && !document.forms[0].ourDelivery.checked && 
+  !document.forms[0].ourConditionar.checked)
+  {
+  alert("Atleast choose one thing encourage you to visit our restaurant.");
+  return false;
+  }
+  if(document.forms[0].Selection.value=="")
+  {
+  alert("Select how frequently do you visit our restaurant.");
+  return false;
+  }
+  if(document.forms[0].gender.value=="")
+  {
+  alert("Please inform us about your gender.");
+  return false;
+  }
+  if(document.forms[0].age.value=="")
+  {
+  alert("Your age is important to our statistical studies.");
+  return false;
+  }
+  if(document.forms[0].age.value < 8 || document.forms[0].age.value > 100)
+  {
+  alert("You are not allowed to fill this form according to your age.");
+  return false;
+  }
+  if(document.forms[0].plate.value=="")
+  {
+  alert("Their should be a plate you ordered !");
+  return false;
+  }
+  if(document.forms[0].Date.value=="")
+  {
+  document.getElementById("date").innerHTML="Set the date to submit this feedback.";
+  return false;
+  }
+  else
+  {
+  return true;
+  }
+}
+</script>
+</head>
+<body>
+<header>
+</header>
+<nav>
+   <a href="project2.html"><img class="nav-logo" width="200px" src="images/bento logo-01.png" alt="fsasaf"></a>
+       <ul>
+           <li><a href="reservation.html">RESERVATION</a></li>
+           <li><a href="events.html">EVENTS</a></li>
+           <li><a href="menu (1).html">MENU</a></li>
+           <li><a href="card.html">COMMENT</a></li>
+       </ul>
+</nav>
+<main>
+<h3 style="color:rgb(179, 44, 48);">How Are We Doing?</h3>
+<p>We are committed to providing you with the best dining experience possible,so we welcome your comments.<br>
+Please fill out this questionnaire and make sure you submit your feedback. Thank you.</p>
+<form name="information" method="post" id="information" action="http://webdevbasics.net/scripts/yoga.php"
+onsubmit="return validateForm();">
+<div class="floatformright">
+<img src="naruto (1).gif" width="400" height="250" alt="Naruto!"> 
+</div>
+<div>
+<table>
+<tr>
+   <th colspan="2">Personal Information</th>
+<tr>
+   <td>Customer Name:</td>
+   <td><input type="text" name="CustomerName" id="CustomerName" size="62" class="required"></td>
+<tr>
+<tr>
+   <td>Address:</td>
+   <td><textarea name="Address" id="Address" cols="58" rows="2" class="required"></textarea></td>
+<tr>
+<tr>
+   <td>Phone Number:</td>
+   <td><input type="tel" name="PhoneNumber" id="PhoneNumber" size="62" class="required digits"></td>
+<tr>
+<tr>
+   <td>Email:</td>
+   <td><input type="email" name="Email" id="Email" size="62" class="required email"></td>
+<tr>   
+</table>
+<p>Please take 5 minutes to fill this selection,it helps us to improve and serve better per your taste
+<blockquote>Please select the appropriate options below:</blockquote><p>
+<div class="floatformright">
+<p><span style="color:rgb(179, 44, 48);font-size:1.5em;"><i><b>Kindley </i></b></span>, choose what encourage you to visit our restaurant?</p><br>
+<div style="padding-bottom:6.8em;">
+<label for="ourLocation">Location</label>
+<input type="checkbox" name="ourLocation" id="ourLocation" value="Location"><p style="float:left;">&nbsp;&nbsp;&nbsp;</p>
+<label for="ourEvents">Events</label>
+<input type="checkbox" name="ourEvents" id="ourEvents" value="Events"><p style="float:left;">&nbsp;&nbsp;&nbsp;</p>
+<label for="ourView">Natural View</label>
+<input type="checkbox" name="ourView" id="ourView" value="View"><p style="float:left;">&nbsp;&nbsp;&nbsp;</p>
+<label for="ourTakeaway">Takeaway</label>
+<input type="checkbox" name="ourTakeaway" id="ourtTakeaway" value="Takeaway"><p style="float:left;">&nbsp;&nbsp;&nbsp;</p>
+<br>
+<label for="ourReputation">Good Reputation</label>
+<input type="checkbox" name="ourReputation" id="ourReputation" value="Reputation"><p style="float:left;">&nbsp;&nbsp;&nbsp;</p>
+<label for="ourSystem">Payment System</label>
+<input type="checkbox" name="ourSystem" id="ourSystem" value="System"><p style="float:left;">&nbsp;&nbsp;&nbsp;</p>
+<label for="ourWifi">Free Wifi</label>
+<input type="checkbox" name="ourWifi" id="ourWifi" value="Wifi"><p style="float:left;">&nbsp;&nbsp;&nbsp;</p>
+<br>
+<label for="ourParking">Free Valley Parking</label>
+<input type="checkbox" name="ourParking" id="ourParking" value="Parking"><p style="float:left;">&nbsp;&nbsp;&nbsp;</p>
+<label for="ourDelivery">Free Delivery</label>
+<input type="checkbox" name="ourDelivery" id="ourDelivery" value="Delivery"><p style="float:left;">&nbsp;&nbsp;&nbsp;</p>
+<label for="ourConditionar">Conditionar</label>
+<input type="checkbox" name="ourConditionar" id="ourConditionar" value="Conditionar">
+</div>
+<hr>
+<h3 style="color:rgb(179, 44, 48);"><b><i>Select how frequently do you visit our restaurant?</i></b></h3>
+<div style="float:left;padding-top:0.8em;">
+<select size="3" name="Selection" id="Selection" style="background-color:#F5F5F5;">
+<option>3-5 times per month</option>
+<option>1-2 times per month</option>
+<option>once every 2 months</option>
+<option>other</option>
+</select>
+</div>
+<div style="margin-left:12em;padding-top:0.01em;">
+<div style="margin-top:-3em;">
+<h4 style="padding-top:2.2em;word-spacing:3em;padding-left:5em;">Male Female</h4>
+<label style="margin-top:-0.5em;" for="gender">Gender: </label>
+<input style="margin-left:2.2em;margin-top:-0.5em;" type="radio" name="gender" id="mgender" value="male">
+<input style="margin-left:6em;margin-top:-0.5em;" type="radio" name="gender" id="fgender" value="female">
+</div>
+<br><hr>
+<label for="age">Age: </label>
+<input type="number" name="age" id="age">
+</div>
+<div style="padding-top:3.5em;">
+<div>
+<label for="plate">Favorite Plate: </label>
+<input type="text" name="plate" id="plate" list="plates">
+  <datalist id="plates">
+    <option value="ramen" label="ramen">
+	<option value="suchi" label="suchi">
+	<option value="" label="">
+	<option value="" label="">
+	<option value="" label="">
+	<option value="" label="">
+   </datalist>
+</div>
+<div style="margin-top:2.5em;">
+<label for="Date">Date:</label>
+<input style="margin-left:4.7em;padding-right:2em;padding-left:2.3em;" type="date" name="Date" id="Date">
+<p id="date" style="color:red;font-family:Arial;font-style:italic;font-size:0.90em;
+top:1em;left:0em;width:20em;position:relative;text-align:center;"></p>
+</div>
+</div>
+</div>
+<fieldset>
+<legend>Rating</legend>
+<div id="titlingdesign">Excellent Good Average Poor</div>
+<br>
+<hr>
+<label for="QoF">Quality of Food</label>
+<div class="ratingdesign">
+<input type="radio" name="QoF" id="QoFEx" value="Excellent" class="radiodesign">
+<input type="radio" name="QoF" id="QoFGo" value="Good" class="radiodesign">
+<input type="radio" name="QoF" id="QoFAve" value="Average" class="radiodesign">
+<input type="radio" name="QoF" id="QoFPo" value="Poor" class="radiodesign">
+</div>
+<br><br>
+<label for="CoR">Cleanliness of Restaurant</label>
+<div class="ratingdesign">
+<input type="radio" name="CoR" id="CoREx" value="Excellent" class="radiodesign">
+<input type="radio" name="CoR" id="CoRGo" value="Good" class="radiodesign">
+<input type="radio" name="CoR" id="CoRAve" value="Average" class="radiodesign">
+<input type="radio" name="CoR" id="CoRPo" value="Poor" class="radiodesign">
+</div>
+<br><br>
+<label for="QoS">Quality of Service</label>
+<div class="ratingdesign">
+<input type="radio" name="QoS" id="QoSEx" value="Excellent" class="radiodesign">
+<input type="radio" name="QoS" id="QoSGo" value="Good" class="radiodesign">
+<input type="radio" name="QoS" id="QoSAve" value="Average" class="radiodesign">
+<input type="radio" name="QoS" id="QoSPo" value="Poor" class="radiodesign">
+</div>
+<br><br>
+<label for="FoS">Friendliness of Staff</label>
+<div class="ratingdesign">
+<input type="radio" name="FoS" id="FoSEx" value="Excellent" class="radiodesign">
+<input type="radio" name="FoS" id="FoSGo" value="Good" class="radiodesign">
+<input type="radio" name="FoS" id="FoSAve" value="Average" class="radiodesign">
+<input type="radio" name="FoS" id="FoSPo" value="Poor" class="radiodesign">
+</div>
+<br><br>
+<label for="SoS">Speed of Service</label>
+<div class="ratingdesign">
+<input type="radio" name="SoS" id="SoSEx" value="Excellent" class="radiodesign">
+<input type="radio" name="SoS" id="SoSGo" value="Good" class="radiodesign">
+<input type="radio" name="SoS" id="SoSAve" value="Average" class="radiodesign">
+<input type="radio" name="SoS" id="SoSPo" value="Poor" class="radiodesign">
+</div>
+<br><br>
+<label for="AoS">Appearance of Staff</label>
+<div class="ratingdesign">
+<input type="radio" name="AoS" id="AoSEx" value="Excellent" class="radiodesign">
+<input type="radio" name="AoS" id="AoSGo" value="Good" class="radiodesign">
+<input type="radio" name="AoS" id="AoSAve" value="Average" class="radiodesign">
+<input type="radio" name="AoS" id="AoSPo" value="Poor" class="radiodesign">
+</div>
+<br><br>
+<label for="VoM">Value of Money</label>
+<div class="ratingdesign">
+<input type="radio" name="VoM" id="VoMEx" value="Excellent" class="radiodesign">
+<input type="radio" name="VoM" id="VoMGo" value="Good" class="radiodesign">
+<input type="radio" name="VoM" id="VoMAve" value="Average" class="radiodesign">
+<input type="radio" name="VoM" id="VoMPo" value="Poor" class="radiodesign">
+</div>
+<br><br>
+<label for="RD">Restaurant Design</label>
+<div class="ratingdesign">
+<input type="radio" name="RD" id="RDEx" value="Excellent" class="radiodesign">
+<input type="radio" name="RD" id="RDGo" value="Good" class="radiodesign">
+<input type="radio" name="RD" id="RDAve" value="Average" class="radiodesign">
+<input type="radio" name="RD" id="RDPo" value="Poor" class="radiodesign">
+</div>
+<br><br>
+</fieldset>
+<div style="margin-left:3em;margin-top:2.5em;">
+<label style="margin-top:1em;color:rgb(179, 44, 48);" for="comments">Leave Your Comments Here:</label>
+<textarea name="comments" id="comments" cols="40" rows="3"></textarea>
+<br><br>
+</div>
+<div style="float:right;margin-top:-5.8em;margin-right:1.4em;">
+<input type="image" src="submit.jpg" width="100" height="80" alt="Login Button">
+</div>
+<hr>
+</form>
+</main>
+<footer>
+   <div class="content">
+     <div class="left box">
+       <div class="upper">
+          <img width="320px" src="images/bento logo-01.png" alt="42">
+       </div>
+       <div class="media-icons">
+           <a href=""><img width="25px" src="images/image (1).png" alt=""></a>
+           <a href=""><img width="25px" src="images/image (2).png" alt=""></a>
+           <a href=""><img width="25px" src="images/image copy.png" alt=""></a>
+           <a href=""><img width="25px" src="images/pngwing.com (2).png" alt=""></a>
+     </div>
+     <br>
+     <br>
+     <div class="copyright">Copyright &#x24b8; 2023 Bento. All Rights Reserved</div> 
+     </div>
+     <div class="middle box">
+       <div class="topic">Our Services</div>
+       <ul>
+       <li>Menu recommendations</li>
+       <li>Table service</li>
+       <li>Sake and beverage pairing</li>
+       <li>Fresh ingredients</li>
+       <li>Authentic Japanese cooking techniques</li>
+       <li>Special requests</li>
+       <li>Knowledgeable staff</li>
+      </ul>
+     </div>
+     <div class="right box">
+       <div class="topic">Subscribe us</div>
+       <form action="#">
+         <input type="email" id="email" name="email" placeholder="Enter email address">
+         <span id="error"></span>
+         <input type="submit" name="" value="Subscribe" onclick="return validateEmail()">
+       </form>
+       <div class="lower">
+           <div class="topic">Contact us</div>
+             <div><a href="#"><img width="13px" src="images/image (4).png" alt=""><i>+999 9999 9999</i></a></div>
+            <div><a href="#"><img width="20px" src="/images/image (2).png" alt=""><i>Location</i></a></div> 
+            <div><a href="mailto:abc@gmail.com"><img width="20px" src="images/image (5).png" alt=""><i>abc@gmail.com</i></a></div>
+     </div>
+       
+     </div>
+   </div>
+   
+ </footer>
+</body>
+</html>

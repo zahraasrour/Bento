@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>Events</title>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="whole.css">
+    <link rel="icon" href="images/bento logo.png" type="image/icon type">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+
+<style>   
+          /* ------------------------------      EVENTS CSS        ----------------------------- */
+         
+          .font{color:rgb(179, 44, 48);
+            font-weight:bold;}
+    
+        h2,p{margin-left:25px;
+        margin-right:25px;
+        margin-top:20px; 
+        margin-bottom:20px;}
+    
+        dt{
+        color:rgb(179, 44, 48);
+        margin-bottom:10px;
+        margin-left:45px;
+        font-style:italic;
+        font-size:1.25em;}
+    
+        dd{
+        margin-left:70px;
+        margin-right:70px;
+    }
+        
+       #details label{display:block;
+              font-weight:bold;
+              width:10em;
+              padding-right:1em;
+              color:rgb(179, 44, 48);
+              float:left;
+              text-align:right;
+            }
+        
+        #details,#BDPARTY{
+            display:none;
+        }
+        
+        .submit{
+            margin-left:12em;
+            width:11em;
+        }
+        
+        .images{
+                float:right;
+                margin-right:3em;
+                border-radius:10px;
+                margin-left:1em;
+                margin-bottom:.5em;
+                width:250px;
+                height:170px;
+        }
+        
+        p,dd{
+            text-align:justify;
+        }
+        p,dd,li{
+            /*font-family:Courier,monospace;*/
+            font-size: 17px;
+            font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+        }
+</style>
+    <script>
+              function validateEmail() {
+        var email = document.getElementById("email").value;
+        var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+        if (email.match(pattern)) {
+          document.getElementById("error").innerHTML = "";
+          return true;
+        } else {
+          document.getElementById("error").innerHTML = "Please enter a valid email address";
+          return false;
+        }
+      }
+        
+      </script>
+	  
+<script>
+
+	function validatenameage() {
+    var agepattern = /^\d+$/;
+    var namepattern = /^[a-zA-Z\s]*$/;
+
+    var age = document.getElementById("age").value;
+    var name = document.getElementById("name").value;
+
+    if (!namepattern.test(name)) {
+        alert("Invalid input! Name should only contain alphabets and spaces.");
+        return false;
+    }
+
+    if (!agepattern.test(age)) {
+        alert("Invalid input! Age should only contain digits.");
+        return false;
+    }
+
+    return true;
+}
+
+</script>
+
+<script>
+	$(document).ready(function(){
+	$('#Click').click(function(){
+	$('#details').toggle();
+	});
+	});
+</script>
+
+<script>
+function toggleBirthdayParty() {
+  var eventType = document.getElementById("event").value;
+  var birthdayPartyDiv = document.getElementById("BDPARTY");
+  if (eventType === "birthday-party") {
+    birthdayPartyDiv.style.display = "block";
+  } else {
+    birthdayPartyDiv.style.display = "none";
+  }
+}
+</script>
+
+<script>
+	$(document).ready(function(){
+	$('#submit').mouseover(function(){
+	$('#fade').fadeToggle();
+	});
+	});
+</script>
+
+<script>
+	$(document).ready(function(){
+	$('#submit').mouseout(function(){
+	$('#fade').fadeToggle();
+	});
+	});
+</script>
+</head>
+
+<body>
+  <!-- Nav code -->
+  <nav>
+    <a href="project2.html"><img class="nav-logo" width="200px" src="images/bento logo-01.png" alt="fsasaf"></a>
+        <ul>
+            <li><a href="reservation.html">RESERVATION</a></li>
+            <li><a href="events.html">EVENTS</a></li>
+            <li><a href="menu (1).html">MENU</a></li>
+            <li><a href="card.html">COMMENT</a></li>
+        </ul>
+</nav>
+<header>
+	<h1 style="margin-top:20px; text-align:center;  margin-bottom:20px;">Weekly Events</h1>
+</header>
+
+<main>
+<p>Welcome to our resturant where every wednesday, friday, and sunday an event will be held at 6:00 pm, where anyone can particpate no matter their age, nationality, race or ethenticity. Below you will see a list of the events that will occur with their details. If you would like to join any of these events please<a href="#" id="Click" style=" font-weight:bold;"> click here</a> to make a reservation.<br><span style="color:rgb(179, 44, 48); font-style:italic;">P.S. You can also host a birthday party all you have to do is choose the "birthday party" option in the list when reserving.</span></p>
+
+<div id="details">
+<form style="padding:3em;" method="post" action="https://webdevbasics.net/scripts/demo.php" onsubmit="return validatenameage()"> 
+<fieldset><legend>Event Reservation: </legend>
+	<div id="fade">
+		<img src="/event images/all3.jpg" style="float:right; height:288px; width:480px; margin:5px 10px 10px 10px; border-radius:20px 2px;" alt="all 3 events">
+	</div>
+	<div style="margin-top:10px; margin-left:20px;">
+	<label for="name">Name:</label><input style="display:block; margin-bottom:2em;" type="text" id="name" name="name" required="required" >
+	<label for="email">Email:</label><input style="display:block; margin-bottom:2em;"type="email" id="email" name="email" required="required">
+	<label for="age">Age:</label><input style="display:block; margin-bottom:2em;" type="text" id="age" name="age" required="required">
+	<label for="day">Date: </label><input style="display:block; margin-bottom:2em;width: 11em;" type="date" style="width:11em;" id="day" name="day" required="required">
+		
+		<label for="event">Event:</label>
+		<select size="1" id="event" name="event" onchange="toggleBirthdayParty()" style="width:11em; margin-bottom:2em;" >
+			<option value="cook-off">cook-off</option>
+			<option value="music competition">music competition</option>
+			<option value="mystery">mystery</option>
+			<option value="birthday-party">Birthday Party</option>
+		</select> 
+		<div id="BDPARTY" >
+		<p><span style="color:rgb(179, 44, 48);font-weight:bold; padding-left:45px;">Please mention below all the details that you want for the party.</span></p>
+		<label for="requests">Details:</label><textarea style="display:block; margin-bottom:2em;" name="requests" id="requests" rows="10" cols="40" ></textarea>
+		</div>
+		
+	<input style="display:block; margin-bottom:2em;" type="submit" id="submit" value="Submit" class="submit"></div></fieldset>
+</form>
+</div>
+
+<h2>Wednesday Nights :</h2>
+<dl>
+	<dt><strong>Cook-off :</strong></dt>
+	<dd><p style="margin-top:0.5em; margin-bottom:0; margin-left:0;">The rules are simple :</p>
+
+	<ol style="margin-left:2em;">
+		<li>Contestants aren't allowed to use their own stuff. All the ingredients, utensils, and equipment needed will be provided by the resturant where they will all be the same for all contestants and they will be free to choose what ever they need for their dish.
+		<li>Everyone has to respect the time limit which is 1 hour, a timer will be set and once it starts all the contestants will start together and once the timer stops everyone has to put their utensils down.
+		<li>The preparation and completion of anything is to be done within the confines of the cook-off site.
+		<li>Cooks are to prepare and cook in a sanitary manner as possible. Cooking conditions are subject to inspection by judging committee.
+	</ol><br>
+	 
+	<p style="margin-top:0.5em; margin-bottom:0; margin-left:0;"> As for the winner he/she will be chosen by the judges, who are the resturants' chefs. The juding criteria is as follows:</p>
+	 <ol style="margin-left:2em;">
+		<li>Execution.</li>
+		<li>Appearance.</li>
+		<li>Taste.</ol>
+	</dd>
+</dl>
+
+<h2>Friday Nights :</h2>
+<dl>
+<dt><strong>Music Competition :</strong></dt>
+<dd>Regarding <span class="font">music competition</span> rules, there are none whatsover. The time limit for the piece that will be presented is 5 minutes.
+As for the winner, he/she will be chosen depending on the votes of the spectatures .</dd>
+</dl>
+
+<img src="/event images/mysterybox.jpg" alt="mystery box" class="images" >
+<h2>Sunday Nights :</h2>
+<dl>
+<dt><strong>Mystery :</strong></dt>
+<dd>As the name suggests this event is not known. The winner of the <span class="font">cook-off</span> and that of the <span class="font">music competition</span> will each post an event of their own choice on their social media tagging the resturant. In their post they have to mention all the rules for the event  which they will be the judge of. The event that will take place will be chosen depending on which post gets the most amount of likes.
+</dd>
+</dl>
+<div style="clear:both;"></div>
+</main>
+<!-- footer code -->
+<footer>
+  <div class="content">
+    <div class="left box">
+      <div class="upper">
+         <img width="320px" src="images/bento logo-01.png" alt="Bento">
+      </div>
+      <div class="media-icons">
+          <a href=""><img width="25px" src="images/image (1).png" alt="Facebook"></a>
+          <a href=""><img width="25px" src="images/image (2) copy.png" alt="Twitter"></a>
+          <a href=""><img width="25px" src="images/image copy.png" alt="Instagram"></a>
+          <a href=""><img width="25px" src="images/pngwing.com (2).png" alt="Pinterest"></a>
+    </div>
+    <br>
+    <br>
+    <div class="copyright">Copyright &#x24b8; 2023 Bento. All Rights Reserved</div> 
+    </div>
+    <div class="middle box">
+      <div class="topic">Our Services</div>
+      <ul>
+      <li>Menu recommendations</li>
+      <li>Table service</li>
+      <li>Sake and beverage pairing</li>
+      <li>Fresh ingredients</li>
+      <li>Authentic Japanese cooking techniques</li>
+      <li>Special requests</li>
+      <li>Knowledgeable staff</li>
+     </ul>
+    </div>
+    <div class="right box">
+      <div class="topic">Subscribe us</div>
+      <form action="#">
+        <input type="email" id="email" name="email" placeholder="Enter email address">
+        <span id="error"></span>
+        <input type="submit" name="" value="Subscribe" onclick="return validateEmail()">
+      </form>
+      <div class="lower">
+          <div class="topic">Contact us</div>
+            <div><a href="#"><img width="13px" src="images/image (4).png" alt="phone number"><i>+999 9999 9999</i></a></div>
+           <div><a href="#"><img width="20px" src="/images/image (2).png" alt="location"><i>Location</i></a></div> 
+           <div><a href="mailto:abc@gmail.com"><img width="20px" src="images/image (5).png" alt="email"><i>abc@gmail.com</i></a></div>
+    </div>
+      
+    </div>
+  </div>
+  
+</footer>
+   
+</body>
+</html>
+

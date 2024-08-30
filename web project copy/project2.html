@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="whole.css">
+    <link rel="icon" href="images/bento logo.png" type="image/icon type">
+
+    <title>Project</title>
+    <script>
+              function validateEmail() {
+        var email = document.getElementById("email").value;
+        var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+        if (email.match(pattern)) {
+          document.getElementById("error").innerHTML = "";
+          return true;
+        } else {
+          document.getElementById("error").innerHTML = "Please enter a valid email address";
+          return false;
+        }
+      }
+        const texts = ["Ramen", "Sushi", "Udon"];
+        let currentIndex = 0;
+let currentText = "";
+let letterIndex = 0;
+
+function writeText() {
+  currentText = texts[currentIndex];
+  document.getElementById("text").innerHTML = currentText.slice(0, letterIndex);
+  letterIndex++;
+
+  if (letterIndex > currentText.length) {
+    letterIndex = 0;
+    currentIndex = (currentIndex + 1) % texts.length;
+  }
+}
+setInterval(writeText, 700);
+      </script>
+</head>
+<body>
+    <nav>
+        <a href="project2.html"><img class="nav-logo" width="200px" src="images/bento logo-01.png" alt="Bento"></a>
+            <ul>
+                <li><a href="reservation.html">RESERVATION</a></li>
+                <li><a href="events.html">EVENTS</a></li>
+                <li><a href="menu (1).html">MENU</a></li>
+                <li><a href="card.html">COMMENT</a></li>
+            </ul>
+    </nav>
+    <main>
+        <div class="Section-1">
+            <img src="images/4313952[1].png" alt="Ramen-poster" class="ramen-poster">
+        <div class="slang">
+        <h1 ><div>Experience the</div>
+        <div><span>Best </span><span id="text"> Ramen</span></div>
+        <div>in Town</div>  </h1>
+        <h2>Check out our menu and visit us today <a href=""><button>Menu</button></a></h2>
+    </div>
+        </div>
+    <div class="section-2">
+        <h1>About Us</h1>
+        <p>Welcome to our Japanese cuisine restaurant! At our establishment, we are dedicated to providing an authentic and delicious dining experience for all of our customers.
+
+            Our chefs are highly trained and passionate about bringing the best of Japanese cuisine to your table. We use only the freshest ingredients, sourced from local and international markets, to ensure that every dish is of the highest quality and flavor.
+            
+            From classic sushi and sashimi to flavorful ramen and udon noodles, our menu has something for everyone. We also offer a variety of vegetarian and gluten-free options to accommodate all dietary needs.
+            
+            At our restaurant, we strive to create a warm and welcoming atmosphere where you can enjoy great food with friends and family. Whether you are a seasoned Japanese cuisine enthusiast or trying it for the first time, we are confident that you will love our dishes and exceptional service.
+            
+            Thank you for choosing our restaurant for your Japanese cuisine needs. We look forward to serving you soon!</p>
+    </div>
+</main>
+<footer>
+    <div class="content">
+      <div class="left box">
+        <div class="upper">
+           <img width="320px" src="images/bento logo-01.png" alt="Bento">
+        </div>
+        <div class="media-icons">
+            <a href=""><img width="25px" src="images/image (1).png" alt="Facebook"></a>
+            <a href=""><img width="25px" src="images/image (2) copy.png" alt="Twitter"></a>
+            <a href=""><img width="25px" src="images/image copy.png" alt="Instagram"></a>
+            <a href=""><img width="25px" src="images/pngwing.com (2).png" alt="Pinterest"></a>
+      </div>
+      <br>
+      <br>
+      <div class="copyright">Copyright &#x24b8; 2023 Bento. All Rights Reserved</div> 
+      </div>
+      <div class="middle box">
+        <div class="topic">Our Services</div>
+        <ul>
+        <li>Menu recommendations</li>
+        <li>Table service</li>
+        <li>Sake and beverage pairing</li>
+        <li>Fresh ingredients</li>
+        <li>Authentic Japanese cooking techniques</li>
+        <li>Special requests</li>
+        <li>Knowledgeable staff</li>
+       </ul>
+      </div>
+      <div class="right box">
+        <div class="topic">Subscribe us</div>
+        <form action="#">
+          <input type="email" id="email" name="email" placeholder="Enter email address">
+          <span id="error"></span>
+          <input type="submit" name="" value="Subscribe" onclick="return validateEmail()">
+        </form>
+        <div class="lower">
+            <div class="topic">Contact us</div>
+              <div><a href="#"><img width="13px" src="images/image (4).png" alt="phone number"><i>+999 9999 9999</i></a></div>
+             <div><a href="#"><img width="20px" src="/images/image (2).png" alt="location"><i>Location</i></a></div> 
+             <div><a href="mailto:abc@gmail.com"><img width="20px" src="images/image (5).png" alt="email"><i>abc@gmail.com</i></a></div>
+      </div>
+        
+      </div>
+    </div>
+    
+  </footer>
+    
+</body>
+</html>
